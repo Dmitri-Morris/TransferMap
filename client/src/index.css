@@ -1,0 +1,152 @@
+/* client/src/index.css */
+
+/* Reset-ish */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial; background: var(--bg); color: var(--fg); }
+
+/* Theme tokens */
+:root {
+  --bg: #0f1115;
+  --fg: #eaeef3;
+  --muted: #9aa6b2;
+  --card: #171a21;
+  --card-border: #2a2f3a;
+  --primary: #f1c40f;
+  --primary-text: #111;
+  --focus: #3b82f6;
+  --ring: 0 0 0 3px rgba(59,130,246,.35);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --fg: #0f172a;
+    --muted: #64748b;
+    --card: #ffffff;
+    --card-border: #e2e8f0;
+    --primary: #d4af37;
+    --primary-text: #111827;
+  }
+}
+
+/* Layout */
+.page {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.hero {
+  display: grid;
+  place-items: center;
+  padding: 48px 16px 16px;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 820px;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0 0 6px;
+}
+
+.subtitle {
+  margin: 0 auto 28px;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: clamp(14px, 2.2vw, 18px);
+}
+
+/* Search */
+.search {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 16px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--fg);
+  outline: none;
+}
+.input:focus { box-shadow: var(--ring); border-color: transparent; }
+
+.btn {
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--primary);
+  color: var(--primary-text);
+  cursor: pointer;
+}
+.btn:disabled { opacity: .7; cursor: default; }
+.btn:focus { outline: none; box-shadow: var(--ring); }
+
+/* Results section */
+.section {
+  width: 100%;
+  max-width: 820px;
+  margin: 24px auto 56px;
+  padding: 0 16px 24px;
+}
+
+.note {
+  padding: 14px 16px;
+  border: 1px dashed var(--card-border);
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  color: var(--muted);
+}
+
+/* Result card */
+.card {
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 14px;
+}
+.card h3 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+.card .line {
+  color: var(--muted);
+  font-size: 13px;
+}
+.card .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .search { grid-template-columns: 1fr; }
+  .card .grid { grid-template-columns: 1fr; }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--card-border);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
+}
