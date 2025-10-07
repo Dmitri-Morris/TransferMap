@@ -140,10 +140,3 @@ npm start        # Production server
 cd scraper
 python run.py    # Run full scrape
 ```
-
-## ⚠️ Important Notes
-
-- The scraper is designed to be respectful of Georgia Tech's servers
-- Always check the current terms of service before running the scraper
-- The database and scraped data files are excluded from version control
-- Run the scraper to populate the database before using the API
